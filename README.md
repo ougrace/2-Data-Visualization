@@ -58,17 +58,18 @@ Review and Launch
 To simplify the name of the notebook and make it easier to get to this image each time: docker tag [IMAGE ID] alias. (e.g., dsnb = data science notebook)
 Running the correct Docker image as a container
 * To run this image:  (this returns the image ID)
-    * `ubuntu@ip-[IP address]:~$ docker run \
-    * > -d \   
-    * > -p 443:8888 \
-    * > -v /home/ubuntu:/home/jovyan \
-    * > jupyter/datascience-notebook`
-* 
+    * `ubuntu@ip-[IP address]:~$ docker run \`
+    * `> -d \ `  
+    * `> -p 443:8888 \`
+    * `> -v /home/ubuntu:/home/jovyan \`
+    * `> jupyter/datascience-notebook`
+
 * d= in detached mode = if we close our shell, we won’t lose anything
 * p = attaching ports to the AWS hosts. [-p Host:container] = 8888 is inside this container
 * v = to mount this [what to attach it to] [what to attach]
-* 
-* `docker ps -a` = to see all containers, even th
+ 
+* `docker ps -a` = to see all containers, even the dead ones
+* `docker ps` = to see all active containers
 
 ## TO RUN A JUPYTER IMAGE as a NEW CONTAINER:
 
