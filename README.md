@@ -3,15 +3,15 @@
 ## To configure a Jupyter Data Science Notebook Server on Amazon Web Services
 
 To create a SSH key pair (where id_rsa is “the key” or private key and id_rsa.pub is “the lock” or public key),
-* first check if there are existing keys using: ls ~/.ssh
-* mkdir -p .ssh <note: use -p because it will create an error if it exists already>
-* ssh -keygen <note: to create a SSH key pair>
-* (/Users/[user]/.ssh/id_rsa) <note: this is where to put SSH keys>. Don’t enter a passphrase -> just press ENTER twice
-* cat ~/.ssh/id_rsa.pub <note: to see key>
-*cat ~/.ssh/id_rsa.pub | pbcopy <note: to copy key to clipboard>
+* first check if there are existing keys using: `ls ~/.ssh`
+* `mkdir -p .ssh` <note: use -p because it will create an error if it exists already>
+* `ssh -keygen` <note: to create a SSH key pair>
+* `/Users/[user]/.ssh/id_rsa` <note: this is where to put SSH keys>. Don’t enter a passphrase -> just press ENTER twice
+* `cat ~/.ssh/id_rsa.pub` <note: to see key>
+* `cat ~/.ssh/id_rsa.pub` | pbcopy <note: to copy key to clipboard>
 
 Update AWS with your SSH public key:
-* Go to EC2, under Resources=“Key Pairs”, import key pair and upload the file
+* Go to EC2, under Resources= “Key Pairs”, import key pair and upload the file
 
 ## Amazon EC2 & Security Groups. (Elastic compute cloud = ECC = EC2)
 
@@ -39,13 +39,13 @@ SSH: source=Anywhere: 5432
 Review and Launch
 
 ## Docker Installation
-* ssh ubuntu@[AWS IP address]
+* `ssh ubuntu@[AWS IP address]`
 * “Are you sure you want to continue connection (yes/no?)….enter yes
-* We should now see a green prompt: ubuntu@ip-[AWS IP address]
-* curl -sSL https://get.docker.com | sh <note:  this will install docker onto our system>
-* Add our user (ubuntu) to the docker group on our system: sudo usermod -oG docker ubuntu
-* For this to take effect:  logout (logout or exit) and log back in. (ssh ubuntu@[AWS IP address])
-* To verify docker was successfully installed:  docker -v (where v=version of docker running)
+* We should now see a green prompt: `ubuntu@ip-[AWS IP address]`
+* `curl -sSL https://get.docker.com | sh` <note:  this will install docker onto our system>
+* Add our user (ubuntu) to the docker group on our system: `sudo usermod -oG docker ubuntu`
+* For this to take effect:  logout (logout or exit) and log back in. (`ssh ubuntu@[AWS IP address]`)
+* To verify docker was successfully installed:  `docker -v` (where v=version of docker running)
 
 ## Obtaining the correct Docker image
 * NOTE:  docker containers need to be stateless = because if we exit something, the code must still be available.
@@ -58,17 +58,17 @@ Review and Launch
 To simplify the name of the notebook and make it easier to get to this image each time: docker tag [IMAGE ID] alias. (e.g., dsnb = data science notebook)
 Running the correct Docker image as a container
 * To run this image:  (this returns the image ID)
-    * ubuntu@ip-[IP address]:~$ docker run \
+    * `ubuntu@ip-[IP address]:~$ docker run \
     * > -d \   
     * > -p 443:8888 \
     * > -v /home/ubuntu:/home/jovyan \
-    * > jupyter/datascience-notebook
+    * > jupyter/datascience-notebook`
 * 
 * d= in detached mode = if we close our shell, we won’t lose anything
 * p = attaching ports to the AWS hosts. [-p Host:container] = 8888 is inside this container
 * v = to mount this [what to attach it to] [what to attach]
 * 
-* docker ps -a = to see all containers, even th
+* `docker ps -a` = to see all containers, even th
 
 ## TO RUN A JUPYTER IMAGE as a NEW CONTAINER:
 
