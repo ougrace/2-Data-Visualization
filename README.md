@@ -17,7 +17,7 @@ Update AWS with your SSH public key:
 
 Go to EC2 and then launch instance
 
-Step 1: Choose AMI : Ubuntu Server 16.04 LTS (HVM), SSD Volume Type. AMI = amazon machine image. Someone created a Ubuntu server 16.04 and saved it with an image somewhere so that we could use it as a “master copy” and use it to create our own space.
+Step 1: Choose AMI : Ubuntu Server 16.04 LTS (HVM), SSD Volume Type. <note: AMI = amazon machine image. Someone created a Ubuntu server 16.04 and saved it with an image somewhere so that we could use it as a “master copy” and use it to create our own space.>
 Ubuntu is: [Class = image = a saved master = eg: linear regression = SMI = container]
 Whereas what we’re creating now is an: [Object = instance = a copy = eg: lm_model = my EC2 instance = image]
 
@@ -79,8 +79,12 @@ Running the correct Docker image as a container
 
 ## Sample budget of the costs of running a Jupyter Data Science Notebook Server for three months
 vCPU Storage Per Hour Per 3 months
-t2.micro 1 GiB  0.01160.0116 25.06
-t2.small 2 GiB  0.02300.0230 49.68
-t2.medium 4 GiB  0.04640.0464 100.22
-t2.large 8 GiB  0.09280.0928 200.45
+
+t2.micro  1 GiB  $0.01160 $ 25.06
+
+t2.small  2 GiB  $0.02300 $ 49.68
+
+t2.medium 4 GiB  $0.04640 $100.22
+
+t2.large  8 GiB  $0.09280 $200.45
 
